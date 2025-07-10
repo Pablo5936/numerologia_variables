@@ -1,0 +1,12 @@
+:root {
+  --color-primario: #388e3c;
+  --color-secundario: #e8f5e9;
+  --color-acento: #a5d6a7;
+  --color-boton: #43a047;
+  --color-boton-hover: #27632a;
+  --color-error: #c0392b;
+  --color-texto: #1b3d1c;
+  --color-titulo: #256029;
+  --radio: 10px;
+  --espaciado: 1.5em;
+}

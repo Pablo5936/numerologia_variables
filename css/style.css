@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+footer {
+  background: var(--color-primario);
+  color: #fff;
+  text-align: center;
+  padding: 1.2em;
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+  margin-top: 20px;
+}
+
+header {
+  background: var(--color-acento);
+  color: #fff;
+  text-align: center;
+  padding: 1.2em;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  background: var(--color-secundario);
+  font-family: "Press Start 2P", system-ui;
+  color: var(--color-texto);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Press Start 2P", system-ui;
+  color: var(--color-titulo);
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.1em;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  width: 50%;
+  padding-top: 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espaciado);
+  width: 100%;
+  margin: auto;
+  gap: 100px;
+}
+
+.resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-family: "Quicksand", sans-serif;
+  display: block;
+  margin: 1.2em auto 0.2em auto;
+  font-weight: 500;
+  color: var(--color-primario);
+  width: 90%;
+  text-align: center;
+  max-width: 400px;
+}
+
+input[type="text"],
+input[type="date"] {
+  font-family: "Quicksand", sans-serif;
+  display: block;
+  margin: 0.2em auto 0.7em auto;
+  padding: 0.6em 1em;
+  width: 50%;
+  max-width: 200px;
+  border: 1px solid #cfcfcf;
+  border-radius: var(--radio);
+  font-size: 1em;
+  background: var(--color-inputs);
+  transition: border 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  background: #f9f5ff;
+}
+
+select {
+  font-family: "Quicksand", sans-serif;
+  display: block;
+  margin: 1.2em auto 1em auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 0.6em;
+  font-size: 1em;
+  border-radius: var(--radio);
+  border: 1.5px solid #b8a2d0;
+  background: #fff;
+  color: var(--color-primario);
+}
+
+button {
+  font-family: "Quicksand", sans-serif;
+  display: inline-block;
+  margin: 1em 0.4em 0 0.4em;
+  padding: 0.7em 1.5em;
+  background: var(--color-boton);
+  color: #fff;
+  border: none;
+  border-radius: var(--radio);
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(120, 56, 180, 0.08);
+}
+
+.volver {
+  margin-top: 20px;
+}
+
+button:hover,
+button:focus {
+  background: var(--color-boton-hover);
+  outline: none;
+}
+
+#anio_actual {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--color-primario);
+}
+
+#resultado,
+#interpretacion {
+  font-family: "Quicksand", sans-serif;
+  background: #fff;
+  border-radius: var(--radio);
+  box-shadow: 0 1px 8px rgba(120, 56, 180, 0.11);
+  margin: 1.6em auto 0 auto;
+  padding: 1.2em 1.4em;
+  width: 92%;
+  max-width: 580px;
+  color: var(--color-primario);
+  font-size: 1.18em;
+  min-height: 2em;
+  word-break: normal;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.25em;
+  }
+
+  #resultado,
+  #interpretacion {
+    font-size: 1em;
+    padding: 1em;
+  }
+
+  input,
+  select {
+    font-size: 0.97em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 0.7em 0.8em;
+  }
+}

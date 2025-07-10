@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Interpretación Expresión del Alma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/normalize.min.css">
+  <link rel="stylesheet" id="tema" href="./css/inicio.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <h1>Interpretación de tu Expresión del Alma</h1>
+  <div id="interpretacion"></div>
+  <button class="volver" onclick="volverInicio()">Regresar a la página principal</button>
+  <script src="js/arr_expresion_alma.js"></script>
+  <script src="js/get.js"></script>
+  <script>
+    const valorParam = getParam('valor');
+    const valor = parseInt(valorParam, 10);
+
+    let texto = "";
+
+    if (typeof expresionAlma === "undefined") {
+      texto = "Error: No se pudo cargar la información de Expresión del Alma.";
+    } else if (!valorParam) {
+      texto = "No se proporcionó ningún número de Expresión del Alma. Agrega ?valor=X a la URL (donde X es un número del 1 al 22).";
+    } else if (isNaN(valor)) {
+      texto = "El valor proporcionado no es un número válido.";
+    } else {
+      let encontrado = false;
+      for (let item of expresionAlma) {
+        if (item.numero === valor) {
+          texto = item.descripcion || "Interpretación no disponible.";
+          encontrado = true;
+          break;
+        }
+      }
+      if (!encontrado) {
+        texto = `No se encontró interpretación para el número ${valor}. Los números disponibles son: ${expresionAlma.map(item => item.numero).join(', ')}.`;
+      }
+    }
+    document.getElementById('interpretacion').innerHTML = `<p>${texto}</p>`;
+
+    function volverInicio() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tema = urlParams.get('tema');
+      let url = "index.html";
+      if (tema) {
+        url += `?tema=${tema}`;
+      }
+      window.location.href = url;
+    }
+  </script>
+</body>
+
+</html>

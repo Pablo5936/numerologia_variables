@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/normalize.min.css">
+  <link rel="stylesheet" id="tema" href="./css/inicio.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Numerología</title>
+</head>
+
+<body>
+  <header>
+    <h1>EL LENGUAJE SECRETO DE LOS NÚMEROS</h1>
+    <p>La numerología es el estudio de los significados ocultos de los números y su influencia en nuestras vidas. Cada
+      número tiene una vibración única que puede afectar nuestra personalidad, nuestras relaciones y nuestro destino.
+    </p>
+  </header>
+  <main>
+    <section class="formulario">
+      <div>
+        <label for="theme">Selecciona un tema:</label>
+        <select onchange="cambiarTema(this.value)" id="theme">
+          <option value="inicio">Inicio</option>
+          <option value="pink">Pink</option>
+          <option value="green">Green</option>
+        </select>
+      </div>
+      <div class="seleccion">
+        <h2>¿Qué deseas calcular?</h2>
+        <select name="opciones" id="seleccion" size="9" onchange="mostrar()" title="Selecciona una opción">
+          <option value="1">0. Año calendario</option>
+          <option value="2">1. Número Personal</option>
+          <option value="3">2. Número del Destino</option>
+          <option value="4">3. Número del Nombre</option>
+          <option value="5">4. Número del Alma</option>
+          <option value="6">5. Expresión del Alma</option>
+          <option value="7">6. Proyecto Sentido</option>
+          <option value="8">7. Año Personal</option>
+          <option value="9">8. Mes Personal</option>
+        </select>
+      </div>
+      <div id="anio_actual"></div>
+      <div class="datos-personales">
+        <label for="nombre">Ingresa nombres y apellidos completos</label>
+        <input type="text" id="nombre" required placeholder="Nombres">
+        <input type="text" id="apellidos" required placeholder="Apellidos">
+        <label for="fecha-nacimiento">Ingresa tu fecha de nacimiento</label>
+        <input type="date" id="fecha-nacimiento" required>
+      </div>
+    </section>
+    <section class="resultado">
+      <button type="button" onclick="calcular()">Calcular</button>
+      <p id="resultado"></p>
+      <button type="button" onclick="interpretar()">Interpretación</button>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Numerología. Todos los derechos reservados.</p>
+    <p>Desarrollado por Juan Pablo Torres Ríos</p>
+    <script src="js/app.js"></script>
+    <script src="./js/get.js"></script>
+    <script>
+      function cambiarTema(tema) {
+        document.getElementById("tema").setAttribute("href", `./css/${tema}.css`);
+      }
+
+      // Aplicar tema al cargar la página
+      window.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tema = urlParams.get('tema');
+        if (tema) {
+          document.getElementById("theme").value = tema;
+          cambiarTema(tema);
+        }
+      });
+    </script>
+</body>
+
+</html>
