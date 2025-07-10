@@ -44,13 +44,18 @@
     document.getElementById('interpretacion').innerHTML = `<p>${texto}</p>`;
 
     function volverInicio() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const tema = urlParams.get('tema');
-      let url = "index.html";
-      if (tema) {
-        url += `?tema=${tema}`;
-      }
-      window.location.href = url;
+      // Primero intenta cerrar la ventana (si fue abierta por script)
+      window.close();
+      // Si no se puede cerrar (por bloqueo del navegador), redirige al index con tema
+      setTimeout(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tema = urlParams.get('tema');
+        let url = "index.html";
+        if (tema) {
+          url += `?tema=${tema}`;
+        }
+        window.location.href = url;
+      }, 300);
     }
   </script>
 </body>
